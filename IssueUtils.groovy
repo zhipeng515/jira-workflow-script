@@ -202,6 +202,19 @@ class IssueUtils {
         return true;
     }
 
+    static boolean checkGitlabLink(String gitHostUrl, String gitApiVersion, String privateToken, String repositoryUrl, String branch) {
+        def repository = (repositoryUrl =~ /${gitHostUrl}\/([\s\S]*).git/)[-1] as ArrayList
+        repository = repository[-1] as String
+        repository = URLEncoder.encode(repository, "UTF-8")
+
+        def url = "${gitHost}/${gitApiVersion}/projects/${repository}/repository/branches?private_token=${privateToken}&per_page=100"
+        def branchList = new URL(url)
+        def branches = new groovy.json.JsonSlurper().parse(branchList.newReader())
+        branches.any {
+            it.name == branch
+        }
+    }
+
     static boolean createGitlabLink(Issue issue, String repository, String branch, ApplicationUser user = null) {
         Logger log = Logger.getLogger("")
 
