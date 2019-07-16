@@ -78,4 +78,34 @@ IssueUtils.allSubtasksInTypeIsStatus(issue, "DesignTask", ["Open","Reopen"]);
 
 ## User
 
+* static boolean isUserMemberOfRole(List<String> roles, Project project, ApplicationUser user = null)
+* static boolean isUserMemberOfRole(List<String> roles, Project project, String userKeyName)
+
+```groovy
+// roles: project roles
+UserUtils.isUserMemberOfRole(["Developer","Designer"], issue.getProjectObject())
+UserUtils.isUserMemberOfRole(["Developer","Designer"], issue.getProjectObject(), "john")
+```
+
+* static boolean addUserToGroup(String userKeyName, String groupName)
+
+```groovy
+// groupName: crowd group name
+UserUtils.addUserToGroup("john", "vpnusers");
+```
+
+* static boolean removeUserFromGroup(String userKeyName, String groupName)
+
+```groovy
+// groupName: crowd group name
+UserUtils.removeUserFromGroup("john", "vpnusers");
+```
+
 ## Workflow
+
+* static void executeTransition(Issue issue, String actionNamePattern, ApplicationUser user = null)
+
+```groovy
+// actionNamePattern: workflow transition name
+WorkflowUtils.executeTransition(issue, "Start");
+```
