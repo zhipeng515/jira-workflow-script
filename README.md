@@ -42,7 +42,7 @@ IssueUtils.getRemoteIssueLinks(issue);
 IssueUtils.createConfluenceLink(issue, "http://confluence.company.com/pages/viewpage.action?pageId=1510304");
 ```
 
-static boolean checkGitlabLink(String gitHostUrl, String gitApiVersion, String privateToken, String repositoryUrl, String branch)
+* static boolean checkGitlabLink(String gitHostUrl, String gitApiVersion, String privateToken, String repositoryUrl, String branch)
 
 ```groovy
 IssueUtils.checkGitlabLink("http://192.168.120.96", "api/v4", "GS799u8jXNKwyJ2gSBib", "http://192.168.120.96/developer-server/GameServer.git", "feature/pay");
