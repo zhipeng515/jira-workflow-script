@@ -185,7 +185,7 @@ class IssueUtils {
         linkBuilder.applicationName(appLink.getName())
         linkBuilder.applicationType("com.atlassian.confluence")
         linkBuilder.relationship("Wiki Page")
-        linkBuilder.title("设计文档")
+        linkBuilder.title("Documents")
         linkBuilder.url(prdUrl)
         def link = linkBuilder.build()
 
@@ -236,10 +236,10 @@ class IssueUtils {
         //this will be the issue that the remote link will get created
         def linkBuilder = new RemoteIssueLinkBuilder()
         linkBuilder.issueId(issue.id)
-        linkBuilder.applicationName("恒信东方 Gitlab")
-        linkBuilder.relationship("相关源代码")
-        linkBuilder.title("Gitlab代码（仓库：" + repositoryName + " 分支：" + branch + "）")
-        linkBuilder.iconUrl("http://gitlab.hejiahuan.cn/favicon.ico")
+        linkBuilder.applicationName("Gitlab")
+        linkBuilder.relationship("Source Code")
+        linkBuilder.title("Gitlab（Repository：" + repositoryName + " Branch：" + branch + "）")
+        linkBuilder.iconUrl("https://www.gitlab.com/favicon.ico")
         linkBuilder.url(gitlabUrl)
 
         def link = linkBuilder.build()
